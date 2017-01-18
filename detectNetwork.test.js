@@ -8,7 +8,8 @@
 // different value.
 var FILL_ME_IN = 'Fill this value in';
 
-describe('Introduction to Mocha Tests - READ ME FIRST', function() {
+
+//describe('Introduction to Mocha Tests - READ ME FIRST', function() {
   // A Mocha test is just a function!
   // If the function throws an error when run, it fails.
   // If it doesn't throw an error when run, it doesn't fail.
@@ -16,31 +17,32 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
   // Once you've read and understood this section, please comment it out.
   // You will not be able to proceed with a failing test.
 
-  it('Throws an error so it fails', function() {
-    throw new Error('Delete me!');
-  });
+  //it('Throws an error so it fails', function() {
+    //throw new Error('Delete me!');
+  //});
 
-  it('Doesn\'t throw an error, so it doesn\'t fail', function() {
+  //it('Doesn\'t throw an error, so it doesn\'t fail', function() {
     // This test doesn't really test anything at all! It will pass no matter what.
-    var even = function(num){
-      return num/2 === 0;
-    }
-    return even(10) === true;
-  });
+    //var even = function(num){
+      //return num/2 === 0;
+    //}
+    //return even(10) === true;
+  //});
 
   // In tests, we want to compare the expected behavior to the actual behavior.
   // A test should only fail if the expected behavior doesn't match the actual.
-  it('Throws an error when expected behavior does not match actual behavior', function() {
-    var even = function(num){
-      return num/2 === 0;
-    }
+  //it('Throws an error when expected behavior does not match actual behavior', function() //{
+    //var even = function(num){
+      //return num/2 === 0;
+    //}
 
-    if(even(10) !== true) {
-      throw new Error('10 should be even!');
-    }
-  });
+    //if(even(10) !== true) {
+      //throw new Error('10 should be even!');
+    //}
+  //});
 
-})
+//})
+
 
 describe('Diner\'s Club', function() {
   // Be careful, tests can have bugs too...
@@ -144,6 +146,7 @@ describe('Discover', function() {
   it('has a prefix of 6011 and a length of 16', function() {
     assert(detectNetwork('6011123456789012') === 'Discover');
   });
+
   it('has a prefix of 6011 and a length of 19', function() {
     assert(detectNetwork('6011123456789012345') === 'Discover');
   });
@@ -162,5 +165,26 @@ describe('Maestro', function() {
   });
 });
 
-describe('should support China UnionPay')
-describe('should support Switch')
+describe('China UnionPay', function() {
+  var should = chai.should();
+
+  it('has a prefix of 201 and a length of 12', function() {
+    detectNetwork('201234567890').should.equal('China UnionPay');
+  });
+
+  it('has a prefix of 201 and a length of 15', function() {
+    detectNetwork('201234567890123'.should.equal('China UnionPay'));
+  });
+});
+
+describe('Switch', function() {
+  var assert = chai.assert();
+
+  it('has a prefix of 5112 and a length of 15', function() {
+    assert(detectNetwork('511234567890123') === 'Switch');
+  });
+
+  it('has a prefix of 5115 and a length of 15', function() {
+    assert(detectNetwork('511567890123456') === 'Switch');
+  });
+})
