@@ -15,13 +15,28 @@ var detectNetwork = function(cardNumber) {
   // Once you've read this, go ahead and try to implement this function, then return to the console.
   // Grab the first 2 character
   // Check the character length
+  var firstFourCardNumbers = cardNumber.slice(0, 4);
+  var firstThreeCardNumbers = cardNumber.slice(0, 3);
   var firstTwoCardNumbers = cardNumber.slice(0, 2);
+  var firstCardNumber = cardNumber.slice(0, 1);
   var cardNumberLength = cardNumber.length;
 
   if ((firstTwoCardNumbers === '38' || firstTwoCardNumbers === '39') && cardNumberLength === 14) {
     return 'Diner\'s Club';
   } else if ((firstTwoCardNumbers === '34' || firstTwoCardNumbers === '37') && cardNumberLength === 15) {
     return 'American Express';
+  } else if (firstCardNumber === '4' && (cardNumberLength === 13 || cardNumberLength === 16 || cardNumberLength === 19)) {
+    return 'Visa';
+  } else if ((firstTwoCardNumbers === '51' || firstTwoCardNumbers === '52' || firstTwoCardNumbers === '53' || firstTwoCardNumbers === '54' || firstTwoCardNumbers === '55') && cardNumberLength === 16) {
+    return 'MasterCard';
+  } else if ((firstFourCardNumbers === '6011' || firstThreeCardNumbers === '644' || firstThreeCardNumbers === '645' || firstThreeCardNumbers === '646' || firstThreeCardNumbers === '647' || firstThreeCardNumbers === '648' || firstThreeCardNumbers === '649' || firstTwoCardNumbers === '65') && (cardNumberLength === 16 || cardNumberLength === 19)) {
+    return 'Discover';
+  } else if ((firstFourCardNumbers === '5018' || firstFourCardNumbers === '5020' || firstFourCardNumbers === '5038' || firstFourCardNumbers === '6304') && (cardNumberLength === 12 || cardNumberLength === 13 || cardNumberLength === 14 || cardNumberLength === 15 || cardNumberLength === 16 || cardNumberLength === 17 || cardNumberLength === 18 || cardNumberLength === 19)) {
+    return 'Maestro';
+  } else if (firstThreeCardNumbers === '201' && (cardNumberLength === 12 || cardNumberLength === 15)) {
+    return 'China UnionPay';
+  } else if ((firstFourCardNumbers === '5112' || firstFourCardNumbers === '5115') && cardNumberLength === 15) {
+    return 'Switch';
   } else {
     return 'Try Different Card Numbers';
   }
