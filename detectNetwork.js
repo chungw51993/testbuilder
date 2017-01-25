@@ -23,7 +23,7 @@ var detectNetwork = function(cardNumber) {
     return 'Diner\'s Club';
   } else if ((firstTwoCardNumbers === '34' || firstTwoCardNumbers === '37') && cardLength === 15) {
     return 'American Express';
-  } else if (firstCardNumber === '4' && (cardLength === 13 || cardLength === 16 || cardLength === 19)) {
+  } else if (firstCardNumber === '4' && (cardLength === 13 || cardLength === 16 || cardLength === 19) && firstTwoCardNumbers !== '49') {
     return 'Visa';
   } else if ((firstTwoCardNumbers === '51' || firstTwoCardNumbers === '52' || firstTwoCardNumbers === '53' || firstTwoCardNumbers === '54' || firstTwoCardNumbers === '55') && cardLength === 16) {
     return 'MasterCard';
@@ -33,7 +33,7 @@ var detectNetwork = function(cardNumber) {
     return 'Maestro';
   } else if (firstTwoCardNumbers === '62' && (cardLength === 16 || cardLength === 17 || cardLength === 18 || cardLength === 19)) {
     return 'China UnionPay';
-  } else if ((firstTwoCardNumbers === '49' || firstTwoCardNumbers === '56' || firstTwoCardNumbers === '63' || firstTwoCardNumbers === '67') && (cardLength === 16, cardLength === 18, cardLength === 19)) {
+  } else if ((firstFourCardNumbers === '4903' || firstFourCardNumbers === '4905' || firstFourCardNumbers === '4911' || firstFourCardNumbers === '4936' || firstTwoCardNumbers === '56' || firstTwoCardNumbers === '63' || firstTwoCardNumbers === '67') && (cardLength === 16 || cardLength === 18 || cardLength === 19)) {
     return 'Switch';
   }
 };
