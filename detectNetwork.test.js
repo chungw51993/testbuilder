@@ -275,7 +275,7 @@ describe('China UnionPay', function () {
       it('has a prefix of ' + prefix + ' and a length of 19', function() {
         assert(detectNetwork(prefix + '1234567890123') === 'China UnionPay');
       });
-    })
+    })(prefix)
   }
 
   for (var prefix = 624; prefix <= 626; prefix++) {
@@ -292,7 +292,7 @@ describe('China UnionPay', function () {
       it('has a prefix of ' + prefix + ' and a length of 19', function() {
         assert(detectNetwork(prefix + '1234567890123456') === 'China UnionPay');
       });
-    })
+    })(prefix)
   }
 
   for (var prefix = 6282; prefix <= 6288; prefix++) {
@@ -309,7 +309,7 @@ describe('China UnionPay', function () {
       it('has a prefix of ' + prefix + ' and a length of 19', function() {
         assert(detectNetwork(prefix + '123456789012345') === 'China UnionPay');
       });
-    })
+    })(prefix)
   }
 });
 
